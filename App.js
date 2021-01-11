@@ -27,9 +27,14 @@ import {
 import LogInPage from './components/LogInPage';
 
 const App: () => React$Node = () => {
-  return <LogInPage />;
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <LogInPage />
+    </>
+  );
   // <>
-  //   <StatusBar barStyle="dark-content" />
+
   //   <SafeAreaView>
   //     <ScrollView
   //       contentInsetAdjustmentBehavior="automatic"
