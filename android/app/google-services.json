@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "829574106248",
+    "firebase_url": "https://line-eyez.firebaseio.com",
+    "project_id": "line-eyez",
+    "storage_bucket": "line-eyez.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829574106248:android:1240d684e915955020233d",
+        "android_client_info": {
+          "package_name": "com.lineeyesnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829574106248-50n1cju9c34l067mc5obrmogp5odnt0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy8DvWkm4nu2NHkBv9conggs6KI-M5jpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829574106248-50n1cju9c34l067mc5obrmogp5odnt0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
