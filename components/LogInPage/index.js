@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Pressable, Image, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Provider as PaperProvider} from 'react-native-paper';
@@ -81,11 +81,11 @@ const LogInPage = (props) => {
             <Image source={PregnancyTest} style={styles.headerImg} />
 
             {currentFormMounted === 'provider' && (
-              <Error />
-              // <ProviderSignUp
-              //   primary={colors.primary}
-              //   propagateCreate={handleCreateClick}
-              // />
+              // <Error />
+              <ProviderSignUp
+                primary={colors.primary}
+                propagateCreate={handleCreateClick}
+              />
             )}
 
             {currentFormMounted === 'login' && (
