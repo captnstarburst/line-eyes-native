@@ -1,5 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {View, Pressable, Image, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  ScrollView,
+  View,
+  Pressable,
+  Image,
+  Text,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Provider as PaperProvider} from 'react-native-paper';
 import PregnancyTest from '../../assets/pregnancy-test.png';
@@ -10,6 +18,7 @@ import LoginForm from './LoginForm';
 import ForgotForm from './ForgotForm';
 import CreateForm from './CreateForm';
 import Error from './Error';
+import Footer from '../UI/Footer';
 const LogInPage = (props) => {
   const {colors} = props.theme;
 
@@ -32,86 +41,90 @@ const LogInPage = (props) => {
   };
 
   return (
-    <LinearGradient
-      colors={['#22c1c3', '#00701a']}
-      style={styles.linearGradient}>
+    <ScrollView>
       <PaperProvider>
-        <View style={styles.middleSquare}>
-          {currentFormMounted === 'provider' ? (
-            <Pressable style={styles.flexRowEnd} onPress={handleLogInClick}>
+        <LinearGradient
+          colors={['#22c1c3', '#00701a']}
+          style={styles.linearGradient}>
+          <View style={styles.middleSquare}>
+            {currentFormMounted === 'provider' ? (
+              <Pressable style={styles.flexRowEnd} onPress={handleLogInClick}>
+                <Text
+                  style={{
+                    color: colors.primary,
+                  }}>
+                  LOG IN
+                </Text>
+                <CustomIcon
+                  name={'arrow-right'}
+                  pLeft={5}
+                  size={20}
+                  color={'black'}
+                />
+              </Pressable>
+            ) : (
+              <Pressable style={styles.flexRowStart} onPress={handleBackClick}>
+                <CustomIcon
+                  name={'arrow-left'}
+                  pLeft={5}
+                  size={20}
+                  color={'black'}
+                />
+                <Text
+                  style={{
+                    color: colors.primary,
+                  }}>
+                  GO BACK
+                </Text>
+              </Pressable>
+            )}
+
+            <View style={styles.flexRowCol}>
               <Text
                 style={{
                   color: colors.primary,
+                  fontSize: 36,
+                  fontFamily: 'RedRose-Regular',
                 }}>
-                LOG IN
+                Line-Eyes
               </Text>
-              <CustomIcon
-                name={'arrow-right'}
-                pLeft={5}
-                size={20}
-                color={'black'}
-              />
-            </Pressable>
-          ) : (
-            <Pressable style={styles.flexRowStart} onPress={handleBackClick}>
-              <CustomIcon
-                name={'arrow-left'}
-                pLeft={5}
-                size={20}
-                color={'black'}
-              />
-              <Text
-                style={{
-                  color: colors.primary,
-                }}>
-                GO BACK
-              </Text>
-            </Pressable>
-          )}
+              <Image source={PregnancyTest} style={styles.headerImg} />
 
-          <View style={styles.flexRowCol}>
-            <Text
-              style={{
-                color: colors.primary,
-                fontSize: 36,
-                fontFamily: 'RedRose-Regular',
-              }}>
-              Line-Eyes
-            </Text>
-            <Image source={PregnancyTest} style={styles.headerImg} />
+              {currentFormMounted === 'provider' && (
+                // <Error />
+                <ProviderSignUp
+                  primary={colors.primary}
+                  propagateCreate={handleCreateClick}
+                />
+              )}
 
-            {currentFormMounted === 'provider' && (
-              // <Error />
-              <ProviderSignUp
-                primary={colors.primary}
-                propagateCreate={handleCreateClick}
-              />
-            )}
+              {currentFormMounted === 'login' && (
+                <LoginForm
+                  primary={colors.primary}
+                  propagateForgot={handleForgotClick}
+                />
+              )}
 
-            {currentFormMounted === 'login' && (
-              <LoginForm
-                primary={colors.primary}
-                propagateForgot={handleForgotClick}
-              />
-            )}
+              {currentFormMounted === 'forgot' && (
+                <ForgotForm primary={colors.primary} />
+              )}
 
-            {currentFormMounted === 'forgot' && (
-              <ForgotForm primary={colors.primary} />
-            )}
-
-            {currentFormMounted === 'create' && (
-              <CreateForm primary={colors.primary} />
-            )}
+              {currentFormMounted === 'create' && (
+                <CreateForm primary={colors.primary} />
+              )}
+            </View>
           </View>
-        </View>
+
+          <Footer white />
+        </LinearGradient>
       </PaperProvider>
-    </LinearGradient>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   linearGradient: {
-    flex: 1,
+    height: Dimensions.get('window').height + 100,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -120,14 +133,14 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginBottom: 100,
     width: 300,
-    height: 200,
+    height: 500,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.5,
     shadowRadius: 2,
     elevation: 3,
     borderRadius: 15,
-    flex: 1,
+    // flex: 1,
   },
   flexRowEnd: {
     flexDirection: 'row',
