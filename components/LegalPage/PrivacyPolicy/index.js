@@ -1,10 +1,12 @@
 import React from 'react';
 import {ScrollView, Text, Pressable, Linking, View} from 'react-native';
+import AppBar from '../../UI/AppBar';
 import Footer from '../../UI/Footer';
 
 const PrivacyPolicy = () => {
   return (
     <ScrollView>
+      <AppBar />
       <View
         style={{
           flex: 1,

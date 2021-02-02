@@ -1,10 +1,12 @@
 import React from 'react';
 import {ScrollView, Text, Pressable, Linking, View} from 'react-native';
 import Footer from '../../UI/Footer';
+import AppBar from '../../UI/AppBar';
 
 const TermsConditions = () => {
   return (
     <ScrollView>
+      <AppBar />
       <View
         style={{
           flex: 1,
