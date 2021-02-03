@@ -11,8 +11,8 @@ import {withAuthentication} from './components/Session';
 const App = (props) => {
   return (
     <NativeRouter>
-      <Route exact path={'/'} component={LogInPage} />
-      <Route exact path={'/error'} component={Landing} />
+      {/* <Route exact path={'/'} component={LogInPage} /> */}
+      <Route exact path={'/'} component={Landing} />
       <Route exact path={'/terms-and-conditions'} component={TermsConditions} />
       <Route exact path={'/privacy-policy'} component={PrivacyPolicy} />
     </NativeRouter>
