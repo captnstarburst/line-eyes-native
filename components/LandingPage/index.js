@@ -1,4 +1,3 @@
-import react from 'react';
 import React from 'react';
 import {ScrollView, View, Text, Dimensions, Pressable} from 'react-native';
 import {IconButton, Button} from 'material-bread';

@@ -9,9 +9,39 @@ import {
   DrawerSection,
   IconButton,
 } from 'material-bread';
+import {withRouter} from 'react-router-native';
 
-const AppBar = () => {
+const AppBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleRouteToMyAccount = () => {
+    handleClose();
+    props.history.push('/Me');
+  };
+
+  const handleRouteToPhoto = () => {
+    handleClose();
+    props.history.push('/upload-photo');
+  };
+
+  const handleRouteToLanding = () => {
+    handleClose();
+    props.history.push('/upload-photo');
+  };
+
+  const handleRouteToAdmin = () => {
+    handleClose();
+    props.history.push('/admin');
+  };
+
+  const handleRouteToPrivacyPolicy = () => {
+    handleClose();
+    props.history.push('/privacy-policy');
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   const toggleDrawer = useCallback(() => {
     setIsOpen((prevState) => !prevState);
@@ -37,26 +67,46 @@ const AppBar = () => {
           {name: 'account-circle'},
         ]}
       />
-      {isOpen && <DrawerContent />}
+      {isOpen && (
+        <Drawer>
+          <DrawerSection bottomDivider>
+            <DrawerItem
+              text={'My Account'}
+              icon={'account-circle'}
+              onPress={handleRouteToMyAccount}
+            />
+            <DrawerItem
+              text={'Add Photo'}
+              icon={'photo-camera'}
+              onPress={handleRouteToPhoto}
+            />
+            <DrawerItem
+              text={'Line Eyes'}
+              icon={'queue'}
+              onPress={handleRouteToLanding}
+            />
+            <DrawerItem
+              text={'Admin'}
+              icon={'rate-review'}
+              onPress={handleRouteToAdmin}
+            />
+          </DrawerSection>
+          <DrawerSection>
+            <DrawerItem
+              text={'Settings'}
+              icon={'settings'}
+              onPress={handleRouteToMyAccount}
+            />
+            <DrawerItem
+              text={'Privacy Policy'}
+              icon={'book'}
+              onPress={handleRouteToPrivacyPolicy}
+            />
+          </DrawerSection>
+        </Drawer>
+      )}
     </>
   );
 };
 
-const DrawerContent = () => {
-  return (
-    <Drawer>
-      <DrawerSection bottomDivider>
-        <DrawerItem text={'My Account'} icon={'account-circle'} />
-        <DrawerItem text={'Add Photo'} icon={'photo-camera'} />
-        <DrawerItem text={'Line Eyes'} icon={'queue'} />
-        <DrawerItem text={'Admin'} icon={'rate-review'} />
-      </DrawerSection>
-      <DrawerSection>
-        <DrawerItem text={'Settings'} icon={'settings'} />
-        <DrawerItem text={'Privacy Policy'} icon={'book'} />
-      </DrawerSection>
-    </Drawer>
-  );
-};
-
-export default AppBar;
+export default withRouter(AppBar);
