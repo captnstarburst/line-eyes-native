@@ -26,7 +26,7 @@ const AppBar = (props) => {
 
   const handleRouteToLanding = () => {
     handleClose();
-    props.history.push('/upload-photo');
+    props.history.push('/');
   };
 
   const handleRouteToAdmin = () => {
