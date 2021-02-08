@@ -17,7 +17,7 @@ const CenteredTabs = () => {
       <Tabs
         style={{height: 40, width: '100%'}}
         backgroundColor={'#FFF'}
-        selectedIndex={1}
+        selectedIndex={0}
         handleChange={(index) => console.log(index)}
         actionItems={[
           <Tab key={1} label="Stats" style={{backgroundColor: '#3F51B5'}} />,
