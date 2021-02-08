@@ -16,7 +16,7 @@ const AppBar = (props) => {
 
   const handleRouteToMyAccount = () => {
     handleClose();
-    props.history.push('/Me');
+    props.history.push('/Me/stats');
   };
 
   const handleRouteToPhoto = () => {
