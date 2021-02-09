@@ -6,6 +6,8 @@ import Profile from '../UI/Profile';
 import Footer from '../UI/Footer';
 import CenteredTabs from './Navigation';
 import Stats from './Stats';
+import Uploads from './Uploads';
+import Activity from './Activity';
 
 const MyAccountPage = () => {
   return (
@@ -17,10 +19,13 @@ const MyAccountPage = () => {
         style={{
           backgroundColor: '#cfe8fc',
           flex: 1,
-          height: Dimensions.get('window').height,
+          minHeight: Dimensions.get('window').height,
         }}>
         <Switch>
           <Route path={`/Me/stats`} component={Stats} />
+          <Route path={`/Me/uploads`} component={Uploads} />
+          <Route path={`/Me/activity`} component={Activity} />
+
           {/* <Route path={`/Me/uploads`}>
           {userData && <Uploads userData={userData} />}
         </Route>
@@ -30,7 +35,16 @@ const MyAccountPage = () => {
         </Route> */}
         </Switch>
       </View>
-      <Footer />
+      <View
+        style={{
+          flex: 1,
+          padding: 20,
+          // marginBottom: 50,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Footer />
+      </View>
     </ScrollView>
   );
 };
