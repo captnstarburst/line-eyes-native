@@ -8,6 +8,7 @@ import CenteredTabs from './Navigation';
 import Stats from './Stats';
 import Uploads from './Uploads';
 import Activity from './Activity';
+import Settings from './Settings';
 
 const MyAccountPage = () => {
   return (
@@ -19,13 +20,13 @@ const MyAccountPage = () => {
         style={{
           backgroundColor: '#cfe8fc',
           flex: 1,
-          minHeight: Dimensions.get('window').height,
+          minHeight: Dimensions.get('window').height + 300,
         }}>
         <Switch>
           <Route path={`/Me/stats`} component={Stats} />
           <Route path={`/Me/uploads`} component={Uploads} />
           <Route path={`/Me/activity`} component={Activity} />
-
+          <Route path={`/Me/settings`} component={Settings} />
           {/* <Route path={`/Me/uploads`}>
           {userData && <Uploads userData={userData} />}
         </Route>

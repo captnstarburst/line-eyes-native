@@ -11,19 +11,6 @@ const Uploads = () => {
           marginTop: 15,
           alignItems: 'center',
         }}>
-        <Text>Wowww</Text>
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
         <ActivityCard />
       </View>
     </ScrollView>
