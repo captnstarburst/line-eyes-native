@@ -20,7 +20,7 @@ const MyAccountPage = () => {
         style={{
           backgroundColor: '#cfe8fc',
           flex: 1,
-          minHeight: Dimensions.get('window').height + 300,
+          minHeight: Dimensions.get('window').height + 500,
         }}>
         <Switch>
           <Route path={`/Me/stats`} component={Stats} />

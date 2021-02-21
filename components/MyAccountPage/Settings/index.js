@@ -20,7 +20,7 @@ const Settings = () => {
     <View style={{alignItems: 'center'}}>
       <List
         subheader={'Personal Info'}
-        style={{width: '80%', paddingTop: 15, paddingLeft: 5}}>
+        style={{width: '80%', marginTop: 15, paddingTop: 15, paddingLeft: 5}}>
         <ListItem
           text={'Profile Picture'}
           media={
@@ -110,10 +110,10 @@ const Settings = () => {
       <List
         subheader={'Account Settings'}
         style={{width: '80%', paddingTop: 15, paddingLeft: 5}}>
+        <ListItem text={'Email Address'} />
         <ListItem
-          text={'Email Address'}
           actionItem={
-            <View style={{width: 150}}>
+            <View style={{width: 250}}>
               <OutlinedTextField
                 label="captnstarburst@gmail.com"
                 keyboardType="email-address"
@@ -124,12 +124,12 @@ const Settings = () => {
             </View>
           }
         />
+        <ListItem text={'User Name'} />
         <ListItem
-          text={'User Name'}
           actionItem={
-            <View style={{width: 150}}>
+            <View style={{width: 250}}>
               <OutlinedTextField
-                label="USER Name"
+                label="User Name"
                 keyboardType="email-address"
                 // formatText={this.formatText}
                 // onSubmitEditing={this.onSubmit}
@@ -138,10 +138,10 @@ const Settings = () => {
             </View>
           }
         />
+        <ListItem text={'Change Password'} />
         <ListItem
-          text={'Change Password'}
           actionItem={
-            <View style={{width: 150}}>
+            <View style={{width: 175}}>
               <Button
                 text={'Reset Password'}
                 textColor={'#E91E63'}
@@ -150,19 +150,15 @@ const Settings = () => {
             </View>
           }
         />
-        <ListItem
-          actionItem={
-            <View style={{width: '140%'}}>
-              <Button
-                text={'Delete Account'}
-                color={'#E91E63'}
-                borderSize={2}
-                type="contained"
-                style={{width: '100%', alignItems: 'center'}}
-              />
-            </View>
-          }
-        />
+        <View style={{alignItems: 'center', width: '100%', paddingBottom: 25}}>
+          <Button
+            text={'Delete Account           '}
+            color={'#E91E63'}
+            borderSize={2}
+            type="contained"
+            style={{alignItems: 'center', width: '100%'}}
+          />
+        </View>
       </List>
     </View>
   );
