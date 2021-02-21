@@ -39,6 +39,11 @@ const AppBar = (props) => {
     props.history.push('/privacy-policy');
   };
 
+  const handleRouteToSettings = () => {
+    handleClose();
+    props.history.push('/Me/settings');
+  };
+
   const handleClose = () => {
     setIsOpen(false);
   };
@@ -95,7 +100,7 @@ const AppBar = (props) => {
             <DrawerItem
               text={'Settings'}
               icon={'settings'}
-              onPress={handleRouteToMyAccount}
+              onPress={handleRouteToSettings}
             />
             <DrawerItem
               text={'Privacy Policy'}
