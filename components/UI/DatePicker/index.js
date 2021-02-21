@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {View, Button, Platform} from 'react-native';
+import {View, Pressable, Platform} from 'react-native';
+import {OutlinedTextField} from 'rn-material-ui-textfield';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const DatePicker = () => {
@@ -22,15 +23,21 @@ const DatePicker = () => {
     showMode('date');
   };
 
-  const showTimepicker = () => {
-    showMode('time');
-  };
-
   return (
     <View>
-      <View>
-        <Button onPress={showDatepicker} title="Show date picker!" />
-      </View>
+      <Pressable onPress={showDatepicker}>
+        <OutlinedTextField
+          label="Date Of Birth"
+          value={'06/09/1991'}
+          disabled
+          // onPress={showDatepicker}
+
+          // keyboardType="email-address"
+          // formatText={this.formatText}
+          // onSubmitEditing={this.onSubmit}
+          // ref={fieldRef}
+        />
+      </Pressable>
       {/* <View>
         <Button onPress={showTimepicker} title="Show time picker!" />
       </View> */}
