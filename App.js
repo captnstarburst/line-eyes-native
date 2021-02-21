@@ -10,7 +10,6 @@ import PhotoPage from './components/PhotoPage';
 import AdminPage from './components/AdminPage';
 import Firebase, {withFirebase} from './components/Firebase';
 import {withAuthentication} from './components/Session';
-
 import {LogBox} from 'react-native';
 
 const App = (props) => {
