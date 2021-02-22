@@ -1,6 +1,7 @@
 import React from 'react';
+import {Text, Image} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import {Card, ProgressCircle, Heading} from 'material-bread';
+import {Card, CardContent, Heading} from 'material-bread';
 import ViewChips from '../../Chips/ViewChips';
 
 const ActivityCard = () => {
@@ -25,7 +26,7 @@ const ActivityCard = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <ProgressCircle />
+        <Heading type={5} text="That's all for now." />
       </Card>
     </Animatable.View>
   );
