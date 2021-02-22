@@ -8,10 +8,10 @@ const Activity = () => {
       <View
         style={{
           flex: 1,
-          marginTop: 15,
           alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 50,
         }}>
-        <Text>Wowww</Text>
         <ActivityCard />
         <ActivityCard />
         <ActivityCard />

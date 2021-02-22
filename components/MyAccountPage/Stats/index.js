@@ -15,7 +15,7 @@ const fadeIn = {
 
 const Stats = () => {
   return (
-    <View style={{flex: 1, alignItems: 'center'}}>
+    <View style={{flex: 1, alignItems: 'center', paddingTop: 25}}>
       <Animatable.View
         animation="zoomIn"
         iterationCount={1}
@@ -25,7 +25,7 @@ const Stats = () => {
           height: 75,
           width: '50%',
           // alignItems: 'center',
-          marginTop: 15,
+          marginTop: 25,
         }}
         // direction="alternate"
       >
@@ -53,7 +53,7 @@ const Stats = () => {
           height: 75,
           width: '50%',
           // alignItems: 'center',
-          marginTop: 15,
+          marginTop: 25,
         }}
         // direction="alternate"
       >
@@ -79,7 +79,7 @@ const Stats = () => {
           height: 350,
           width: '80%',
           // alignItems: 'center',
-          marginTop: 15,
+          marginTop: 25,
         }}
         // direction="alternate"
       >

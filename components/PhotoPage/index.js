@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {ScrollView, View, Text} from 'react-native';
 import AppBar from '../UI/AppBar';
 import TagDrawer from '../UI/TagDrawer';
-import Chips from '../UI/Chips';
+import PaperChips from '../UI/Chips/PaperChips';
 import UploadCard from '../UI/Cards/UploadCard';
 import * as ImagePicker from 'react-native-image-picker';
 
@@ -41,7 +41,7 @@ const PhotoPage = () => {
       <AppBar />
       <TagDrawer />
       <View style={{backgroundColor: '#CFE8FC', width: '100%', height: 500}}>
-        <Chips />
+        <PaperChips />
         <UploadCard imgSource={imageSource} selectImage={selectImage} />
       </View>
     </ScrollView>

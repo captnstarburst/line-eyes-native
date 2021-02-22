@@ -3,8 +3,8 @@ import {ScrollView, View, Text, Dimensions, Pressable} from 'react-native';
 import {IconButton, Button} from 'material-bread';
 import Draggable from 'react-native-draggable';
 import AppBar from '../UI/AppBar';
-import Card from '../UI/Card';
-import Chips from '../UI/Chips';
+import Card from '../UI/Cards/ActivityCard';
+import PaperChips from '../UI/Chips/PaperChips';
 import Footer from '../UI/Footer';
 
 const LandingPage = () => {
@@ -54,9 +54,7 @@ const LandingPage = () => {
           backgroundColor: '#CFE8FC',
           height: Dimensions.get('window').height - 50,
         }}>
-        <View style={{marginTop: 100, alignItems: 'center'}}>
-          <Chips />
-        </View>
+        <PaperChips />
         <Draggable x={50} y={50}>
           <View style={{marginTop: 100, alignItems: 'center'}}>
             <Card />

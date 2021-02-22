@@ -20,7 +20,7 @@ const Settings = () => {
     <View style={{alignItems: 'center'}}>
       <List
         subheader={'Personal Info'}
-        style={{width: '80%', marginTop: 15, paddingTop: 15, paddingLeft: 5}}>
+        style={{width: '80%', marginTop: 50, paddingTop: 15, paddingLeft: 5}}>
         <ListItem
           text={'Profile Picture'}
           media={
