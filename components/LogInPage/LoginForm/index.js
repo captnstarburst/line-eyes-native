@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {styles} from './styles';
 import {View, Pressable, Text} from 'react-native';
 import {OutlinedTextField} from 'rn-material-ui-textfield';
 import SignUpButton from '../../UI/IconButton';
@@ -8,7 +9,7 @@ const LogInForm = (props) => {
 
   return (
     <>
-      <View style={{width: '80%'}}>
+      <View style={styles.root}>
         <OutlinedTextField
           label="User Name or Email"
           keyboardType="email-address"
@@ -25,10 +26,9 @@ const LogInForm = (props) => {
           ref={fieldRef}
         />
       </View>
-      <View
-        style={{width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.contentCenter}>
         <SignUpButton
-          title="Log In"
+          title="Log In  "
           backgroundColor={props.primary}
           color="#FFF"
           icon="account-circle"
