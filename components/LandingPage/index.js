@@ -8,6 +8,10 @@ import NoMoreCard from '../UI/Cards/NoMoreCard';
 import Card from '../UI/Cards/ActivityCard';
 import PaperChips from '../UI/Chips/PaperChips';
 import Footer from '../UI/Footer';
+import {withAuthorization} from '../Session';
+import {withRouter} from 'react-router-native';
+import {withFirebase} from '../Firebase';
+import {compose} from 'recompose';
 
 const LandingPage = () => {
   return (
@@ -54,4 +58,10 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+const condition = (authUser) => !!authUser;
+
+const ComposedLanding = compose(withRouter, withFirebase)(LandingPage);
+
+export default withAuthorization(condition)(ComposedLanding);
+
+// export default LandingPage;

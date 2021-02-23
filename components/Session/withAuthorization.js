@@ -1,7 +1,6 @@
 import React from 'react';
-// import {withRouter} from 'react-router-dom';
 import {withRouter} from 'react-router-native';
-// import {compose} from 'recompose';
+import {compose} from 'recompose';
 import AuthUserContext from './context';
 import {withFirebase} from '../Firebase';
 // import * as ROUTES from '../constants/routes';
@@ -12,7 +11,7 @@ const withAuthorization = (condition) => (Component) => {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         (authUser) => {
           if (!condition(authUser)) {
-            this.props.history.push('/');
+            this.props.history.push('/LogIn');
           }
         },
       );
@@ -33,7 +32,6 @@ const withAuthorization = (condition) => (Component) => {
     }
   }
 
-  return withFirebase(withAuthorization);
   return compose(withRouter, withFirebase)(WithAuthorization);
 };
 

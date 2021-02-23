@@ -1,5 +1,5 @@
 import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
+// import {Provider as PaperProvider} from 'react-native-paper';
 import App from './App';
 import Firebase, {FirebaseContext} from './components/Firebase';
 import {BreadProvider} from 'material-bread';
@@ -10,11 +10,9 @@ const Providers: () => React$Node = () => {
       <FirebaseContext.Consumer>
         {(firebase) => {
           return (
-            // <PaperProvider>
             <BreadProvider>
               <App firebase={firebase} />
             </BreadProvider>
-            // </PaperProvider>
           );
         }}
       </FirebaseContext.Consumer>
@@ -22,5 +20,4 @@ const Providers: () => React$Node = () => {
   );
 };
 
-// export default App;
 export default Providers;
