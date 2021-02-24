@@ -59,9 +59,9 @@ class Firebase {
   //   return this.storage.ref();
   // }
 
-  // useFunctions() {
-  //   return this.functions;
-  // }
+  useFunctions() {
+    return this.functions;
+  }
 
   // currentUserUID() {
   //   return this.auth.currentUser.uid;
