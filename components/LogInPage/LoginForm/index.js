@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Pressable, Text} from 'react-native';
 import {OutlinedTextField} from 'rn-material-ui-textfield';
 import {styles} from './styles';
+import {Button, Icon} from 'material-bread';
 import SignUpButton from '../../UI/IconButton';
 import {compose} from 'recompose';
 import {withFirebase} from '../../Firebase';
@@ -101,28 +102,30 @@ const LogInForm = (props) => {
           label="User Name or Email"
           keyboardType="email-address"
           onChangeText={(text) => handleChange(text, 'user')}
-          // onSubmitEditing={onSubmitUser}
-          // onFocus={onFocus}
-          // ref={userFieldRef}
+          error={errorText}
           value={user}
         />
         <OutlinedTextField
           label="Password"
           keyboardType="default"
           secureTextEntry
-          // ref={passwordFieldRef}
           onChangeText={(text) => handleChange(text, 'password')}
+          error={errorText}
           value={password}
         />
       </View>
       <View style={styles.contentCenter}>
-        <SignUpButton
-          title="Log In  "
-          backgroundColor={props.primary}
-          color="#FFF"
-          icon="account-circle"
+        <Button
+          text={'Log In'}
+          style={{backgroundColor: '#3F51B5'}}
+          icon={<Icon name="account-circle" />}
+          type="contained"
+          loading={asyncWork}
+          iconPosition={'right'}
           onPress={handleSignIn}
+          fullWidth
         />
+
         <Pressable style={{marginTop: 30}} onPress={props.propagateForgot}>
           <Text
             style={{

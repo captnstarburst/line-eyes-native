@@ -33,12 +33,7 @@ const CreateForm = (props) => {
           // onSubmitEditing={this.onSubmit}
           ref={fieldRef}
         />
-        <OutlinedTextField
-          label="Date Of Birth"
-          // formatText={this.formatText}
-          // onSubmitEditing={this.onSubmit}
-          ref={fieldRef}
-        />
+
         <DatePicker />
       </View>
       <View
