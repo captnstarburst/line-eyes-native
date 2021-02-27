@@ -1,16 +1,9 @@
 import React, {useState, useCallback} from 'react';
-import {View} from 'react-native';
-import {
-  Appbar,
-  Badge,
-  Drawer,
-  DrawerItem,
-  DrawerHeader,
-  DrawerSection,
-  IconButton,
-} from 'material-bread';
+import {Appbar, Badge, Drawer, DrawerItem, DrawerSection} from 'material-bread';
+import DropMenu from '../DropMenu';
+import {withFirebase} from '../../Firebase';
 import {withRouter} from 'react-router-native';
-
+import {compose} from 'recompose';
 const AppBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -60,6 +53,28 @@ const AppBar = (props) => {
         navigation={'menu'}
         onNavigation={toggleDrawer}
         actionItems={[
+          <DropMenu
+            key={1}
+            iconName="notifications"
+            color="#FFF"
+            rng={1}
+            menuItems={[
+              {
+                text: "That's all for now",
+                action: () => {},
+              },
+            ]}
+          />,
+          <DropMenu
+            key={2}
+            iconName="account-circle"
+            color="#FFF"
+            rng={2}
+            menuItems={[
+              {text: 'My Account', action: handleRouteToMyAccount},
+              {text: 'Log Out', action: props.firebase.doSignOut},
+            ]}
+          />,
           // <Badge
           //   containerStyle={{marginRight: 16, flex: 1}}
           //   color={'#e10050'}
@@ -68,10 +83,12 @@ const AppBar = (props) => {
           //   content={0}>
           //   <IconButton name="notification" size={24} color={'white'} />
           // </Badge>,
-          {name: 'notifications', onPress: () => console.log('onSearch')},
-          {name: 'account-circle'},
+          // {name: 'notifications', onPress: () => console.log('onSearch')},
+          // {name: ''},
+          ,
         ]}
       />
+
       {isOpen && (
         <Drawer>
           <DrawerSection bottomDivider>
@@ -114,4 +131,6 @@ const AppBar = (props) => {
   );
 };
 
-export default withRouter(AppBar);
+const ComposedMenuAppBar = compose(withRouter, withFirebase)(AppBar);
+
+export default ComposedMenuAppBar;
