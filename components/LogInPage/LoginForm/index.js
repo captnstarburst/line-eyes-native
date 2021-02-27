@@ -29,7 +29,13 @@ const LogInForm = (props) => {
   };
 
   const handleSignIn = () => {
+    if (!user || !password) {
+      setErrorText('Must not be blank');
+      return;
+    }
+
     setAsyncWork(true);
+
     if (EmailValidator(user)) {
       props.firebase
         .doSignInWithEmailAndPassword(user, password)

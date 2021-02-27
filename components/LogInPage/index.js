@@ -33,6 +33,10 @@ const LogInPage = (props) => {
     setCurrentForm('create');
   };
 
+  const handleError = () => {
+    setCurrentForm('error');
+  };
+
   return (
     <ScrollView>
       <PaperProvider>
@@ -95,6 +99,7 @@ const LogInPage = (props) => {
                 <LoginForm
                   primary={colors.primary}
                   propagateForgot={handleForgotClick}
+                  propagateError={handleError}
                 />
               )}
 
@@ -105,6 +110,8 @@ const LogInPage = (props) => {
               {currentFormMounted === 'create' && (
                 <CreateForm primary={colors.primary} />
               )}
+
+              {currentFormMounted === 'error' && <Error />}
             </View>
           </View>
 
