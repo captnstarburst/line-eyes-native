@@ -9,9 +9,10 @@ export const styles = StyleSheet.create({
   middleSquare: {
     backgroundColor: '#FFF',
     marginTop: 100,
+    paddingBottom: 50,
     marginBottom: 100,
     width: 300,
-    minHeight: 500,
+    maxHeight: 800,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.5,
