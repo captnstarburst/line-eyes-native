@@ -3,7 +3,6 @@ import {View, Pressable, Text} from 'react-native';
 import {OutlinedTextField} from 'rn-material-ui-textfield';
 import {styles} from './styles';
 import {Button, Icon} from 'material-bread';
-import SignUpButton from '../../UI/IconButton';
 import {compose} from 'recompose';
 import {withFirebase} from '../../Firebase';
 import {withRouter} from 'react-router-native';
@@ -45,7 +44,7 @@ const LogInForm = (props) => {
         .catch(function (error) {
           const errCode = error.code;
 
-          setAsyncWork(true);
+          setAsyncWork(false);
 
           switch (errCode) {
             case 'auth/wrong-password':
@@ -58,7 +57,6 @@ const LogInForm = (props) => {
               props.propagateError();
               break;
           }
-          console.log(JSON.stringify(error));
           // props.propagateError();
         });
     } else {

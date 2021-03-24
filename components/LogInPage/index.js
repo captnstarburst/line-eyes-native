@@ -108,7 +108,10 @@ const LogInPage = (props) => {
               )}
 
               {currentFormMounted === 'create' && (
-                <CreateForm primary={colors.primary} />
+                <CreateForm
+                  primary={colors.primary}
+                  propagateError={handleError}
+                />
               )}
 
               {currentFormMounted === 'error' && <Error />}

@@ -1,50 +1,53 @@
 import React, {useState} from 'react';
-import {View, Pressable, Platform} from 'react-native';
+import {View} from 'react-native';
 import {OutlinedTextField} from 'rn-material-ui-textfield';
-import DefaultDateString from '../../functions/DefaultDateString';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import Modal from 'react-native-modal';
+import {FormattedDateString} from '../../functions/DefaultDateString';
+import DatePicker from 'react-native-date-picker';
 
-const DatePicker = (props) => {
-  const [mode, setMode] = useState('date');
-  const [show, setShow] = useState(false);
+const Picker = (props) => {
+  const [showModal, setShowModal] = useState(false);
 
-  const onChange = (e, selectedDate) => {
-    console.log(selectedDate);
+  const onChange = (selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(false);
     props.propagateChange('dateObject', currentDate);
-    props.propagateChange('dateOfBirth', DefaultDateString(currentDate));
+    props.propagateChange('dateOfBirth', FormattedDateString(currentDate));
   };
 
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode('date');
-  };
+  const toggleModal = () => setShowModal((previousState) => !previousState);
 
   return (
     <View>
       <OutlinedTextField
         label="Date Of Birth"
         value={props.date}
-        disabled={show}
-        onFocus={showDatepicker}
+        disabled={showModal}
+        onFocus={toggleModal}
+        error={props.error}
       />
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={props.dateObject}
-          mode={mode}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
+      <Modal
+        isVisible={showModal}
+        onBackdropPress={toggleModal}
+        animationIn="zoomInDown"
+        animationOut="zoomOutUp"
+        backdropTransitionOutTiming={600}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 300,
+            borderRadius: 25,
+          }}>
+          <DatePicker
+            date={props.dateObject}
+            onDateChange={(date) => onChange(date)}
+            mode={'date'}
+          />
+        </View>
+      </Modal>
     </View>
   );
 };
 
-export default DatePicker;
+export default Picker;

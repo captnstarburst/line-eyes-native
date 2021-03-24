@@ -1,8 +1,18 @@
-const DefaultDateString = (dateObj) => {
+export const DefaultDateString = (dateObj) => {
   return (
     formattedDay(dateObj) +
     '/' +
     formattedMonth(dateObj) +
+    '/' +
+    dateObj.getFullYear()
+  );
+};
+
+export const FormattedDateString = (dateObj) => {
+  return (
+    formattedMonth(dateObj) +
+    '/' +
+    formattedDay(dateObj) +
     '/' +
     dateObj.getFullYear()
   );
@@ -22,5 +32,3 @@ const formattedDay = (dateObj) => {
 
   return dateObj.getDate();
 };
-
-export default DefaultDateString;

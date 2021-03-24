@@ -51,9 +51,9 @@ class Firebase {
 
   // doAccountDelete = () => this.auth.currentUser.delete();
 
-  // getFirestore() {
-  //   return this.firestore;
-  // }
+  getFirestore() {
+    return this.firestore;
+  }
 
   // getStorage() {
   //   return this.storage.ref();
@@ -91,10 +91,10 @@ class Firebase {
   //   return role;
   // }
 
-  // timestampFrom(date) {
-  //   date.setDate(date.getDate() + 1);
-  //   return app.firestore.Timestamp.fromDate(date);
-  // }
+  timestampFrom(date) {
+    date.setDate(date.getDate() + 1);
+    return app.firestore.Timestamp.fromDate(date);
+  }
 
   // incrementCount() {
   //   return app.firestore.FieldValue.increment(1);
