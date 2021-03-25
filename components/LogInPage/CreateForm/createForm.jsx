@@ -13,14 +13,14 @@ const CreateFormJSX = (props) => {
           keyboardType="email-address"
           onChangeText={(text) => props.handleChange('email', text)}
           value={props.userInfo.email}
-          error={props.checkingValues ? props.formError.email : null}
+          error={props.checkingValues ? props.formError.email : ''}
         />
         <OutlinedTextField
           label="User Name"
           onChangeText={(text) => props.handleChange('username', text)}
           keyboardType="default"
           value={props.userInfo.username}
-          error={props.checkingValues ? props.formError.username : null}
+          error={props.checkingValues ? props.formError.username : ''}
         />
         <OutlinedTextField
           label="Password"
@@ -28,7 +28,7 @@ const CreateFormJSX = (props) => {
           keyboardType="default"
           secureTextEntry
           value={props.userInfo.password}
-          error={props.checkingValues ? props.formError.password : null}
+          error={props.checkingValues ? props.formError.password : ''}
         />
         <OutlinedTextField
           label="Re-Enter Password"
@@ -36,7 +36,7 @@ const CreateFormJSX = (props) => {
           keyboardType="default"
           secureTextEntry
           value={props.userInfo.password_check}
-          error={props.checkingValues ? props.formError.password : null}
+          error={props.checkingValues ? props.formError.password : ''}
         />
         <Picker
           date={props.userInfo.dateOfBirth}

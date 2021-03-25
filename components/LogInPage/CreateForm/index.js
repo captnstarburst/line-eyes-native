@@ -85,7 +85,6 @@ const CreateForm = (props) => {
   }, [minimumDate, userInfo]);
 
   const handleCreateClick = (e) => {
-    e.preventDefault();
     setAsyncWork(true);
 
     let check = true;
@@ -99,7 +98,10 @@ const CreateForm = (props) => {
       .get()
       .then(function (querySnapshot) {
         if (!querySnapshot.empty) {
-          setFormError((prevState) => ({...prevState, username: true}));
+          setFormError((prevState) => ({
+            ...prevState,
+            username: 'user name is taken',
+          }));
           check = false;
         }
       })
@@ -140,8 +142,6 @@ const CreateForm = (props) => {
             profile_pic: false,
           });
 
-        SetStorage('display_name', userInfo.username);
-
         return authUser;
       })
       .then(async (authUser) => {
@@ -181,7 +181,7 @@ const CreateForm = (props) => {
       })
 
       .then(() => {
-        props.history.push(ROUTES.LANDING);
+        props.history.push('/');
       })
       .catch(function (err) {
         const errorCode = err.code;
@@ -190,29 +190,17 @@ const CreateForm = (props) => {
         if (errorCode === 'auth/weak-password') {
           setFormError((prevState) => ({
             ...prevState,
-            password: true,
-          }));
-          setErrorText((prevState) => ({
-            ...prevState,
-            passwordErrorText: 'weak password',
+            password: 'weak password',
           }));
         } else if (errorCode === 'auth/email-already-in-use') {
           setFormError((prevState) => ({
             ...prevState,
-            email: true,
-          }));
-          setErrorText((prevState) => ({
-            ...prevState,
-            emailErrorText: 'email is already in use',
+            email: 'email is already in use',
           }));
         } else if (errorCode === 'auth/invalid-email') {
           setFormError((prevState) => ({
             ...prevState,
-            email: true,
-          }));
-          setErrorText((prevState) => ({
-            ...prevState,
-            emailErrorText: 'check email for validity',
+            email: 'check email for validity',
           }));
         } else {
           props.propagateError();
