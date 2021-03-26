@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, Dimensions, Pressable} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {Switch, Route} from 'react-router-native';
 import AppBar from '../UI/AppBar';
 import Profile from '../UI/Profile';
@@ -9,6 +9,11 @@ import Stats from './Stats';
 import Uploads from './Uploads';
 import Activity from './Activity';
 import Settings from './Settings';
+import {styles} from './styles';
+import {compose} from 'recompose';
+import {withFirebase} from '../Firebase';
+import {withAuthorization} from '../Session';
+import {withRouter} from 'react-router-native';
 
 const MyAccountPage = () => {
   return (
@@ -16,13 +21,7 @@ const MyAccountPage = () => {
       <AppBar />
       <Profile />
       <CenteredTabs />
-      <View
-        style={{
-          backgroundColor: '#cfe8fc',
-          flex: 1,
-          minHeight: 500,
-          paddingBottom: 50,
-        }}>
+      <View style={styles.root}>
         <Switch>
           <Route path={`/Me/stats`} component={Stats} />
           <Route path={`/Me/uploads`} component={Uploads} />
@@ -37,18 +36,15 @@ const MyAccountPage = () => {
         </Route> */}
         </Switch>
       </View>
-      <View
-        style={{
-          flex: 1,
-          padding: 20,
-          // marginBottom: 50,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.footerContainer}>
         <Footer />
       </View>
     </ScrollView>
   );
 };
 
-export default MyAccountPage;
+const condition = (authUser) => !!authUser;
+
+const ComposedMyAccount = compose(withFirebase)(MyAccountPage);
+
+export default withAuthorization(condition)(ComposedMyAccount);
