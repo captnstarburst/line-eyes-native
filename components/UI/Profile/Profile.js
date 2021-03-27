@@ -2,8 +2,13 @@ import React from 'react';
 import {Text, View, Image} from 'react-native';
 import {Paper, Avatar, Button} from 'material-bread';
 import {styles} from './styles';
+import {withRouter} from 'react-router-native';
 
 const Profile = (props) => {
+  const handleRouteToSettings = () => {
+    props.history.push('/Me/settings');
+  };
+
   return (
     <Paper style={styles.root} elevation={2}>
       <View style={styles.centerRow}>
@@ -40,10 +45,15 @@ const Profile = (props) => {
         </View>
       </View>
       {props.edit && (
-        <Button text={'Edit Profile'} textColor={'#9EA7DA'} type="outlined" />
+        <Button
+          text={'Edit Profile'}
+          textColor={'#9EA7DA'}
+          type="outlined"
+          onPress={handleRouteToSettings}
+        />
       )}
     </Paper>
   );
 };
 
-export default Profile;
+export default withRouter(Profile);
