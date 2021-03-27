@@ -9,17 +9,20 @@ import Stats from './Stats';
 import Uploads from './Uploads';
 import Activity from './Activity';
 import Settings from './Settings';
+import useUserDataListener from '../hooks/useUserDataListener';
 import {styles} from './styles';
 import {compose} from 'recompose';
 import {withFirebase} from '../Firebase';
 import {withAuthorization} from '../Session';
 import {withRouter} from 'react-router-native';
 
-const MyAccountPage = () => {
+const MyAccountPage = (props) => {
+  const userData = useUserDataListener(props.firebase);
+
   return (
     <ScrollView>
       <AppBar />
-      <Profile />
+      <Profile edit userData={userData} />
       <CenteredTabs />
       <View style={styles.root}>
         <Switch>

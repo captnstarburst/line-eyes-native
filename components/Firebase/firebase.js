@@ -63,9 +63,9 @@ class Firebase {
     return this.functions;
   }
 
-  // currentUserUID() {
-  //   return this.auth.currentUser.uid;
-  // }
+  currentUserUID() {
+    return this.auth.currentUser.uid;
+  }
 
   // currentUserEmail() {
   //   return this.auth.currentUser.email;
