@@ -39,7 +39,7 @@ const Settings = (props) => {
                 type="text"
                 content={props.avatar}
                 contentColor={'white'}
-                size={64}
+                size={36}
                 color={'#BDBDBD'}
               />
             )
