@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text} from 'react-native';
-import {
-  FormattedDateString,
-  DefaultDateString,
-} from '../../functions/DefaultDateString';
+import {FormattedDateString} from '../../functions/DefaultDateString';
 import EmailValidator from '../../functions/EmailValidator';
 import CreateFormJSX from './CreateForm.jsx';
 import {compose} from 'recompose';

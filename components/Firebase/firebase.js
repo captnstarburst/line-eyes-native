@@ -49,15 +49,15 @@ class Firebase {
   // doPasswordUpdate = (password) =>
   //   this.auth.currentUser.updatePassword(password);
 
-  // doAccountDelete = () => this.auth.currentUser.delete();
+  doAccountDelete = () => this.auth.currentUser.delete();
 
   getFirestore() {
     return this.firestore;
   }
 
-  // getStorage() {
-  //   return this.storage.ref();
-  // }
+  getStorage() {
+    return this.storage.ref();
+  }
 
   useFunctions() {
     return this.functions;
@@ -67,13 +67,14 @@ class Firebase {
     return this.auth.currentUser.uid;
   }
 
-  // currentUserEmail() {
-  //   return this.auth.currentUser.email;
-  // }
+  currentUserEmail() {
+    return this.auth.currentUser.email;
+  }
 
-  // updateUserEmail(emailAddress) {
-  //   return this.auth.currentUser.updateEmail(emailAddress);
-  // }
+  updateUserEmail(emailAddress) {
+    return this.auth.currentUser.updateEmail(emailAddress);
+  }
+
   // async getRole() {
   //   const firestore = this.getFirestore();
   //   const uid = this.currentUserUID();
@@ -92,7 +93,7 @@ class Firebase {
   // }
 
   timestampFrom(date) {
-    date.setDate(date.getDate() + 1);
+    date.setDate(date.getDate());
     return app.firestore.Timestamp.fromDate(date);
   }
 

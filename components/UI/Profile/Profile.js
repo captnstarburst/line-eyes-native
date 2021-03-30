@@ -22,7 +22,7 @@ const Profile = (props) => {
                 }}
               />
             }
-            size={24}
+            size={40}
           />
         ) : (
           <Avatar

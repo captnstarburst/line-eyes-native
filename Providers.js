@@ -3,6 +3,7 @@ import React from 'react';
 import App from './App';
 import Firebase, {FirebaseContext} from './components/Firebase';
 import {BreadProvider} from 'material-bread';
+import Toast from 'react-native-toast-message';
 
 const Providers: () => React$Node = () => {
   return (
@@ -12,6 +13,7 @@ const Providers: () => React$Node = () => {
           return (
             <BreadProvider>
               <App firebase={firebase} />
+              <Toast ref={(ref) => Toast.setRef(ref)} />
             </BreadProvider>
           );
         }}

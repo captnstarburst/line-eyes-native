@@ -14,7 +14,7 @@ import {styles} from './styles';
 import {compose} from 'recompose';
 import {withFirebase} from '../Firebase';
 import {withAuthorization} from '../Session';
-import {withRouter} from 'react-router-native';
+// import {withRouter} from 'react-router-native';
 
 const MyAccountPage = (props) => {
   const userData = useUserDataListener(props.firebase);
@@ -29,13 +29,14 @@ const MyAccountPage = (props) => {
           <Route path={`/Me/stats`} component={Stats} />
           <Route path={`/Me/uploads`} component={Uploads} />
           <Route path={`/Me/activity`} component={Activity} />
-          <Route path={`/Me/settings`} component={Settings} />
+          <Route path={`/Me/settings`}>
+            {userData && <Settings userData={userData} />}
+          </Route>
           {/* <Route path={`/Me/uploads`}>
           {userData && <Uploads userData={userData} />}
         </Route>
         <Route path={`/Me/activity`} component={Activity} />
-        <Route path={`/Me/settings`}>
-          {userData && <Settings userData={userData} />}
+        
         </Route> */}
         </Switch>
       </View>
