@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, Dimensions, Pressable} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import ActivityCard from '../../UI/Cards/ActivityCard';
 
 const Uploads = () => {
@@ -12,7 +12,7 @@ const Uploads = () => {
           justifyContent: 'center',
           paddingTop: 50,
         }}>
-        <ActivityCard />
+        {/* <ActivityCard /> */}
       </View>
     </ScrollView>
   );

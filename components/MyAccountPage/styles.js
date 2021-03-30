@@ -4,7 +4,6 @@ export const styles = StyleSheet.create({
   root: {
     backgroundColor: '#cfe8fc',
     flex: 1,
-    minHeight: 500,
     paddingBottom: 50,
   },
   footerContainer: {

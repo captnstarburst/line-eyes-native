@@ -12,19 +12,7 @@ const Activity = () => {
           justifyContent: 'center',
           paddingTop: 50,
         }}>
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
+        {/* <ActivityCard /> */}
       </View>
     </ScrollView>
   );
