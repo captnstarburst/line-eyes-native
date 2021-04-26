@@ -1,34 +1,33 @@
 import React from 'react';
 import {View} from 'react-native';
-
 import {Chip, Paper} from 'material-bread';
+import {styles} from './styles';
 
 const Chips = (props) => {
   return (
-    <View style={{marginTop: 70, alignItems: 'center'}}>
-      <Paper
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          backgroundColor: 'white',
-          width: '75%',
-          height: 50,
-          // height: 10,
-          // width: 10,
-          // borderRadius: 100,
-        }}
-        elevation={0}
-        radius={6}>
-        <Chip style={{marginTop: 7}} text={'Chip'} />
-        {/* <Chip style={{alignSelf: 'center'}} text={'Chip'} />
-        <Chip
-          style={{justifySelf: 'center'}}
-          text={'Delete me'}
-          visible={true}
-          onDelete={() => {}}
-        /> */}
+    <View style={styles.root}>
+      <Paper style={styles.paper} elevation={0} radius={6}>
+        {props.chipData.map((topicArrays, topicIndex) => {
+          return (
+            <View key={topicIndex}>
+              {topicArrays.map((item) => {
+                if (item.viewing) {
+                  return (
+                    <Chip
+                      key={item.key}
+                      style={styles.chipMargin}
+                      text={item.label.split('_').join(' ')}
+                      // className={classes.chip}
+                      onDelete={() => props.propagateChipDeletion(item.label)}
+                    />
+                  );
+                } else {
+                  return null;
+                }
+              })}
+            </View>
+          );
+        })}
       </Paper>
     </View>
   );

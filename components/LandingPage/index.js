@@ -24,7 +24,7 @@ const LandingPage = () => {
           backgroundColor: '#CFE8FC',
           height: Dimensions.get('window').height - 50,
         }}>
-        <PaperChips />
+        {/* <PaperChips /> */}
         <LoadingCard />
         {/* <NoMoreCard /> */}
         {/* <Draggable

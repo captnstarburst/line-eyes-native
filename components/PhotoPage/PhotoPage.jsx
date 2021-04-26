@@ -15,7 +15,10 @@ const PhotoPageJSX = (props) => {
         propagateChipSelection={props.handleChipSelection}
       />
       <View style={styles.root}>
-        <PaperChips />
+        <PaperChips
+          chipData={props.chipData}
+          propagateChipDeletion={props.handleChipDeletion}
+        />
         <UploadCard
           imgSource={props.imageSource}
           selectImage={props.selectImage}

@@ -36,7 +36,6 @@ const PhotoPage = () => {
           break;
       }
 
-      // setMountUpload(true);
       setAddTopic(null);
     }
   }, [addTopic, chipData]);
@@ -99,12 +98,10 @@ const PhotoPage = () => {
 
     if (id === 'Ovulation_Test') {
       dataCopy.pop();
-      setMountUpload(false);
     } else if (id === 'Pregnancy_Test') {
       dataCopy.pop();
       dataCopy.pop();
       dataCopy.pop();
-      setMountUpload(false);
     }
 
     dataCopy.splice(indices[0], indices[0] + 1, ...updatedTopicArray);
@@ -151,6 +148,7 @@ const PhotoPage = () => {
       chipData={chipData}
       selectImage={selectImage}
       handleChipSelection={handleChipSelection}
+      handleChipDeletion={handleChipDeletion}
     />
   );
 };
