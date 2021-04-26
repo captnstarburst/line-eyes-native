@@ -17,7 +17,7 @@ const LandingPage = () => {
   return (
     <ScrollView>
       <AppBar />
-      <TagDrawer />
+      {/* <TagDrawer /> */}
 
       <View
         style={{

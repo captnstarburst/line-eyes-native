@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Menu, {MenuItem} from 'react-native-material-menu';
-import {IconButton} from 'material-bread';
+import {IconButton, Button} from 'material-bread';
 
 class DropMenu extends React.PureComponent {
   _menu = null;
@@ -25,12 +25,20 @@ class DropMenu extends React.PureComponent {
         <Menu
           ref={this.setMenuRef}
           button={
-            <IconButton
-              name={this.props.iconName}
-              color={this.props.color}
-              size={24}
-              onPress={this.showMenu}
-            />
+            this.props.button ? (
+              <Button
+                text={'Test Type'}
+                type="contained"
+                onPress={this.showMenu}
+              />
+            ) : (
+              <IconButton
+                name={this.props.iconName}
+                color={this.props.color}
+                size={24}
+                onPress={this.showMenu}
+              />
+            )
           }>
           {this.props.menuItems.map((item, i) => (
             <MenuItem
