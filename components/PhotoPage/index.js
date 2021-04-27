@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import * as ImagePicker from 'react-native-image-picker';
 import PhotoPageJSX from './PhotoPage';
 import * as RAW_TAG_DATA from '../constants/RawTagData';
 
 const PhotoPage = () => {
-  const [imageSource, setImageSource] = useState(null);
   const [chipData, setChipData] = useState([RAW_TAG_DATA.getTestType()]);
 
   const [addTopic, setAddTopic] = useState(null);
@@ -116,37 +114,10 @@ const PhotoPage = () => {
 
     setChipData(dataCopy);
   };
-  function selectImage() {
-    let options = {
-      title: 'You can choose one image',
-      maxWidth: 256,
-      maxHeight: 256,
-      storageOptions: {
-        skipBackup: true,
-      },
-    };
-
-    ImagePicker.launchImageLibrary(options, (response) => {
-      console.log({response});
-
-      if (response.didCancel) {
-        console.log('User cancelled photo picker');
-        // Alert.alert('You did not select any image');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      } else {
-        let source = {uri: response.uri};
-        console.log({source});
-      }
-    });
-  }
 
   return (
     <PhotoPageJSX
       chipData={chipData}
-      selectImage={selectImage}
       handleChipSelection={handleChipSelection}
       handleChipDeletion={handleChipDeletion}
     />

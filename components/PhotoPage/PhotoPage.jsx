@@ -19,10 +19,7 @@ const PhotoPageJSX = (props) => {
           chipData={props.chipData}
           propagateChipDeletion={props.handleChipDeletion}
         />
-        <UploadCard
-          imgSource={props.imageSource}
-          selectImage={props.selectImage}
-        />
+        <UploadCard />
       </View>
     </ScrollView>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {TouchableWithoutFeedback, Image} from 'react-native';
 import {
   Card,
@@ -8,13 +8,44 @@ import {
   Badge,
 } from 'material-bread';
 import * as Animatable from 'react-native-animatable';
+import * as ImagePicker from 'react-native-image-picker';
 import Placeholder from '../../../../assets/placeholder.png';
 
 const UploadCard = (props) => {
+  const [imageSource, setImageSource] = useState(null);
+  const handleUploadClick = () => {
+    let options = {
+      title: 'You can choose one image',
+      maxWidth: 256,
+      maxHeight: 256,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
+
+    ImagePicker.launchImageLibrary(options, (response) => {
+      console.log(response.uri);
+
+      if (response.didCancel) {
+        // console.log('User cancelled photo picker');
+        // Alert.alert('You did not select any image');
+      } else if (response.error) {
+        // console.log('ImagePicker Error: ', response.error);
+        setOnError(true);
+      } else if (response.customButton) {
+        // console.log('User tapped custom button: ', response.customButton);
+      } else {
+        // uploadFileSelection(response.uri);
+        // let source = {uri: response.uri};
+        // console.log({source});
+      }
+    });
+  };
+
   return (
     <TouchableWithoutFeedback
       style={{flex: 1, width: '100%'}}
-      onPress={props.selectImage}>
+      onPress={handleUploadClick}>
       <Animatable.View
         animation="zoomIn"
         iterationCount={1}
